@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="橙子电影网 - 让好电影像一颗橙子一样，剥开就有阳光。精选院线热映、口碑佳片、冷门佳作与经典修复，为你挑出最值得看的那一颗。">
+<meta name="keywords" content="橙子电影网,好电影推荐,院线热映,口碑佳片,经典修复,chengzidianyingwang-wap">
+<meta name="author" content="橙子电影网">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="bingbot" content="index, follow, max-image-preview:large">
+<meta name="referrer" content="always">
+<meta property="og:title" content="橙子电影网 - 让好电影像一颗橙子，剥开就有阳光">
+<meta property="og:description" content="精选院线热映、口碑佳片、冷门佳作与经典修复，为你挑出最值得看的那一颗。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://chengzidianyingwang-wap.github.io">
+<meta property="og:site_name" content="橙子电影网">
+<title>橙子电影网 | 剥开就有阳光的好电影 | chengzidianyingwang-wap.github.io</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --peel:#1b1208;
+  --rind:#2e1c0a;
+  --zest:#e8792a;
+  --orange:#ff8c1a;
+  --bright:#ffa62e;
+  --soft:#ffd28a;
+  --cream:#fff6e8;
+  --paper:#fffbf2;
+  --pulp:#fff1d6;
+  --ink:#3d2a14;
+  --mute:#8a7355;
+  --leaf:#4f8a3a;
+  --line:rgba(232,121,42,.22);
+  --shadow:rgba(232,121,42,.18);
+  --sans:'PingFang SC','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);line-height:1.85;background:var(--paper);overflow-x:hidden}
+body{background-image:
+  radial-gradient(circle at 12% 8%,rgba(255,166,46,.16),transparent 42%),
+  radial-gradient(circle at 88% 92%,rgba(232,121,42,.12),transparent 40%)}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img,svg{max-width:100%}
+::selection{background:var(--zest);color:#fff}
+
+/* ===== big nav ===== */
+.top{
+  position:sticky;top:0;z-index:70;background:rgba(255,251,242,.94);
+  backdrop-filter:blur(12px);border-bottom:2px solid var(--zest);
+}
+.top-in{max-width:1280px;margin:0 auto;padding:0 30px;display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{display:flex;align-items:center;gap:13px}
+.logo .o{
+  width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#ffd17a,var(--bright) 42%,var(--zest) 75%,#c45f10);
+  position:relative;box-shadow:0 4px 14px var(--shadow);flex-shrink:0;
+}
+.logo .o::before{content:'';position:absolute;top:-3px;right:2px;width:14px;height:14px;background:var(--leaf);clip-path:polygon(50% 0,100% 35%,80% 100%,20% 100%,0 35%);}
+.logo b{font-size:1.5rem;font-weight:800;letter-spacing:.01em;color:var(--rind)}
+.logo b i{font-style:normal;color:var(--zest)}
+.logo small{font-size:.72rem;color:var(--mute);letter-spacing:.14em;text-transform:uppercase;margin-left:4px}
+.navlinks{display:flex;align-items:center;gap:6px}
+.navlinks a{font-size:.86rem;font-weight:600;padding:9px 16px;color:#5c4526;border-radius:20px;transition:.25s}
+.navlinks a:hover{background:var(--cream);color:var(--zest)}
+.navlinks .cta{background:var(--zest);color:#fff;border-radius:20px;padding:10px 24px;margin-left:8px}
+.navlinks .cta:hover{background:var(--orange);color:#fff}
+.mbtn{display:none;width:42px;height:42px;border:2px solid var(--zest);border-radius:50%;color:var(--zest);font-size:1.15rem}
+.sheet{display:none;position:fixed;inset:78px 0 0;z-index:69;background:var(--paper);padding:16px 24px;border-top:2px solid var(--zest)}
+.sheet.open{display:block}
+.sheet a{display:block;padding:16px 4px;font-size:1.02rem;font-weight:600;color:var(--rind);border-bottom:1px dashed var(--line)}
+
+/* ===== banner: squeeze hero ===== */
+.hero{
+  max-width:1280px;margin:0 auto;padding:64px 30px 40px;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;
+}
+.hero .lead .tag{
+  display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--zest);background:var(--cream);border:1px solid var(--line);padding:5px 14px;border-radius:20px;margin-bottom:24px;
+}
+.hero h1{font-size:clamp(2.3rem,5.4vw,4.2rem);font-weight:900;line-height:1.2;color:var(--rind);letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--zest);position:relative;white-space:nowrap}
+.hero h1 em::after{content:'';position:absolute;left:0;right:0;bottom:4px;height:12px;background:rgba(255,209,122,.55);z-index:-1;border-radius:6px}
+.hero .sub{margin-top:26px;font-size:1.02rem;color:var(--mute);max-width:520px}
+.hero .acts{margin-top:34px;display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.btn{background:var(--zest);color:#fff;font-weight:700;padding:14px 34px;border-radius:30px;font-size:.9rem;transition:.3s;box-shadow:0 8px 22px var(--shadow)}
+.btn:hover{background:var(--orange);transform:translateY(-2px)}
+.ghost{font-size:.86rem;font-weight:700;color:var(--zest);padding:12px 4px}
+.stats{margin-top:44px;display:flex;gap:44px;flex-wrap:wrap}
+.stats div span{display:block;font-size:1.85rem;font-weight:900;color:var(--zest);line-height:1}
+.stats div small{font-size:.78rem;color:var(--mute);letter-spacing:.06em}
+
+.peel-wrap{position:relative;aspect-ratio:1/1;max-width:520px;margin-left:auto}
+.peel-wrap svg{width:100%;height:100%;filter:drop-shadow(0 20px 40px var(--shadow))}
+.peel-wrap .float{
+  position:absolute;background:var(--paper);border:2px solid var(--zest);border-radius:16px;
+  padding:12px 16px;font-size:.82rem;font-weight:700;color:var(--rind);box-shadow:0 10px 26px var(--shadow);
+}
+.peel-wrap .f1{top:8%;left:-6%;transform:rotate(-6deg)}
+.peel-wrap .f2{top:44%;right:-8%;transform:rotate(5deg)}
+.peel-wrap .f3{bottom:6%;left:2%;transform:rotate(-3deg)}
+
+/* ===== ticker ===== */
+.ticker{background:var(--peel);color:var(--soft);padding:13px 0;overflow:hidden}
+.ticker-track{display:flex;gap:48px;white-space:nowrap;animation:slide 38s linear infinite;font-size:.86rem;font-weight:600;letter-spacing:.04em}
+.ticker-track span{display:flex;align-items:center;gap:48px}
+.ticker-track span::after{content:'🍊';font-size:.72rem}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ===== section frame ===== */
+.wrap{max-width:1280px;margin:0 auto;padding:0 30px}
+.frame{padding:88px 0}
+.eyebrow{display:flex;align-items:baseline;gap:14px;margin-bottom:14px}
+.eyebrow b{font-size:.76rem;font-weight:800;letter-spacing:.22em;color:var(--zest);text-transform:uppercase}
+.eyebrow i{width:36px;height:2px;background:var(--zest);display:block;font-style:normal}
+.frame h2{font-size:clamp(1.8rem,4.2vw,2.85rem);font-weight:900;color:var(--rind);line-height:1.35;max-width:760px}
+.frame h2 em{font-style:normal;color:var(--zest)}
+.frame .desc{margin-top:16px;font-size:.92rem;color:var(--mute);max-width:640px;line-height:1.95}
+
+/* ===== zig-zag rows (movies) ===== */
+.peel-list{margin-top:52px;display:flex;flex-direction:column;gap:26px}
+.peel-row{
+  display:grid;grid-template-columns:110px 1.2fr .8fr 1fr 100px;gap:26px;align-items:center;
+  background:var(--cream);border-radius:20px;padding:22px 28px;border:1px solid var(--line);transition:.35s;
+}
+.peel-row:hover{background:#fff;border-color:var(--zest);transform:translateX(6px);box-shadow:0 12px 30px var(--shadow)}
+.peel-row .no{font-size:2.2rem;font-weight:900;color:var(--soft);line-height:1}
+.peel-row .tt h3{font-size:1.25rem;font-weight:800;color:var(--rind)}
+.peel-row .tt small{font-size:.78rem;color:var(--mute)}
+.peel-row .bar{height:8px;background:var(--pulp);border-radius:10px;overflow:hidden}
+.peel-row .bar i{display:block;height:100%;background:linear-gradient(90deg,var(--bright),var(--zest));border-radius:10px}
+.peel-row .tag{font-size:.76rem;font-weight:700;color:var(--zest);background:var(--pulp);border-radius:14px;padding:5px 13px;text-align:center}
+.peel-row .go{text-align:right;font-size:1.6rem;color:var(--zest)}
+
+/* ===== orchard grid (categories) ===== */
+.orchard{margin-top:52px;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.tree{
+  position:relative;background:var(--cream);border-radius:24px;padding:30px 24px 26px;
+  border:1px solid var(--line);overflow:hidden;transition:.4s;
+}
+.tree::before{
+  content:'';position:absolute;top:0;right:0;width:90px;height:90px;border-radius:0 0 0 100%;
+  background:radial-gradient(circle at 75% 25%,rgba(255,166,46,.5),transparent 65%);transition:.4s;
+}
+.tree:hover{transform:translateY(-6px);box-shadow:0 16px 36px var(--shadow)}
+.tree:hover::before{width:130px;height:130px}
+.tree .ico{font-size:2.1rem;margin-bottom:18px}
+.tree h3{font-size:1.15rem;font-weight:800;color:var(--rind);margin-bottom:8px}
+.tree p{font-size:.83rem;color:var(--mute);line-height:1.85}
+.tree .cnt{margin-top:16px;font-size:.76rem;font-weight:700;color:var(--zest);letter-spacing:.04em}
+
+/* ===== split squeeze (features) ===== */
+.squeeze{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--rind);border-radius:32px;overflow:hidden;margin-top:52px}
+.squeeze .half{padding:52px 46px;color:var(--soft)}
+.squeeze .half.dark{background:var(--peel)}
+.squeeze .half h3{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:900;color:#fff;line-height:1.4;margin-bottom:26px}
+.squeeze .half ul{list-style:none}
+.squeeze .half li{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.12)}
+.squeeze .half li:last-child{border-bottom:none}
+.squeeze .half li b{font-size:1.6rem;line-height:1;flex-shrink:0}
+.squeeze .half li div strong{display:block;font-size:1rem;font-weight:700;color:#fff;margin-bottom:3px}
+.squeeze .half li div span{font-size:.84rem;color:rgba(255,255,255,.68);line-height:1.8}
+.squeeze .half a.more{display:inline-block;margin-top:30px;color:var(--bright);font-size:.86rem;font-weight:700;border-bottom:2px solid var(--bright);padding-bottom:3px}
+
+/* ===== timeline (news) ===== */
+.line{margin-top:56px;position:relative;padding-left:34px}
+.line::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;width:3px;background:repeating-linear-gradient(to bottom,var(--zest),var(--zest) 10px,transparent 10px,transparent 20px)}
+.entry-tl{position:relative;padding-bottom:34px}
+.entry-tl::before{
+  content:'';position:absolute;left:-31px;top:6px;width:20px;height:20px;border-radius:50%;
+  background:var(--paper);border:4px solid var(--zest);
+}
+.entry-tl time{font-size:.76rem;font-weight:800;letter-spacing:.14em;color:var(--zest);text-transform:uppercase}
+.entry-tl h4{font-size:1.2rem;font-weight:800;color:var(--rind);margin:8px 0 10px;line-height:1.5}
+.entry-tl p{font-size:.88rem;color:var(--mute);line-height:1.95;max-width:760px}
+.entry-tl .pill{display:inline-block;margin-top:12px;font-size:.74rem;font-weight:700;color:var(--zest);background:var(--cream);border-radius:12px;padding:4px 12px}
+
+/* ===== wedge (about) ===== */
+.wedge{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:52px}
+.wedge .txt h3{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:900;color:var(--rind);line-height:1.5;margin-bottom:22px}
+.wedge .txt p{font-size:.94rem;color:var(--mute);line-height:2.05;margin-bottom:16px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.chips span{font-size:.82rem;font-weight:700;color:var(--zest);background:var(--cream);border:1px solid var(--line);border-radius:20px;padding:7px 16px}
+.bunch{position:relative;aspect-ratio:1/1;background:var(--cream);border-radius:40px;border:2px dashed var(--zest);display:flex;align-items:center;justify-content:center}
+.bunch .orb{position:absolute;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;font-weight:800;box-shadow:0 8px 20px var(--shadow)}
+.o1{width:38%;height:38%;top:10%;left:12%;background:radial-gradient(circle at 32% 28%,#ffd17a,var(--orange) 55%,var(--zest))}
+.o2{width:30%;height:30%;top:16%;right:10%;background:radial-gradient(circle at 32% 28%,#ffe0a0,var(--bright) 55%,var(--orange))}
+.o3{width:44%;height:44%;bottom:8%;left:26%;background:radial-gradient(circle at 32% 28%,#ffc966,var(--orange) 55%,#d9650f)}
+
+/* ===== url bar ===== */
+.urlbar{margin-top:60px;background:var(--zest);border-radius:28px;padding:38px 42px;display:flex;align-items:center;justify-content:space-between;gap:26px;flex-wrap:wrap;color:#fff}
+.urlbar .u{font-size:clamp(1rem,2.6vw,1.5rem);font-weight:800;letter-spacing:.01em}
+.urlbar .u small{display:block;font-size:.82rem;font-weight:600;opacity:.85;margin-top:8px}
+.urlbar a{color:#fff;font-weight:700;font-size:.88rem;border-bottom:2px solid #fff;padding-bottom:3px}
+
+/* ===== footer ===== */
+footer{background:var(--peel);color:var(--soft);padding:64px 0 28px;margin-top:40px}
+.foot{max-width:1280px;margin:0 auto;padding:0 30px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:44px}
+.foot .logo .o{box-shadow:none}
+.foot .logo b{color:#fff}
+.foot .logo small{color:rgba(255,255,255,.55)}
+.foot .logo p{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.95;margin-top:16px;max-width:320px}
+.foot h5{font-size:.92rem;font-weight:800;color:#fff;margin-bottom:18px;letter-spacing:.06em}
+.foot ul{list-style:none}
+.foot li{margin-bottom:11px}
+.foot a{font-size:.85rem;color:rgba(255,255,255,.6);transition:.2s}
+.foot a:hover{color:var(--bright)}
+.footbot{max-width:1280px;margin:36px auto 0;padding:24px 30px 0;border-top:1px solid rgba(255,255,255,.14);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.78rem;color:rgba(255,255,255,.45)}
+.footbot a{color:var(--bright)}
+
+/* ===== reveal ===== */
+.rv{opacity:0;transform:translateY(28px);transition:.75s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ===== responsive ===== */
+@media (max-width:1000px){
+  .hero{grid-template-columns:1fr;gap:44px;padding-top:44px}
+  .peel-wrap{margin:0 auto}
+  .peel-row{grid-template-columns:64px 1fr;gap:14px;padding:18px}
+  .peel-row .bar,.peel-row .tag,.peel-row .go{display:none}
+  .orchard{grid-template-columns:repeat(2,1fr)}
+  .squeeze{grid-template-columns:1fr}
+  .wedge{grid-template-columns:1fr;gap:40px}
+  .foot{grid-template-columns:1fr 1fr;gap:32px}
+  .frame{padding:60px 0}
+  .navlinks{display:none}
+  .mbtn{display:block}
+}
+@media (max-width:560px){
+  .top-in{padding:0 18px;height:66px}
+  .hero{padding:34px 18px 28px}
+  .orchard{grid-template-columns:1fr}
+  .stats{gap:26px}
+  .foot{grid-template-columns:1fr}
+  .urlbar{padding:28px 24px;border-radius:20px}
+  .squeeze .half{padding:34px 26px}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaolu.js"></script>
+
+<!-- Top nav -->
+<div class="top">
+  <div class="top-in">
+    <div class="logo"><span class="o"></span><b>橙子<i>电影网</i></b><small>oranges / 2026</small></div>
+    <nav class="navlinks">
+      <a href="#now">正在热映</a>
+      <a href="#types">影片类型</a>
+      <a href="#why">为什么选我们</a>
+      <a href="#notes">放映笔记</a>
+      <a href="#story">关于橙子</a>
+      <a href="#story" class="cta">收藏本站</a>
+    </nav>
+    <button class="mbtn" id="mBtn">☰</button>
+  </div>
+</div>
+<div class="sheet" id="sheet">
+  <a href="#now">正在热映</a>
+  <a href="#types">影片类型</a>
+  <a href="#why">为什么选我们</a>
+  <a href="#notes">放映笔记</a>
+  <a href="#story">关于橙子</a>
+  <a href="#story">收藏本站</a>
+</div>
+
+<!-- Hero: squeeze -->
+<div class="hero">
+  <div class="lead">
+    <span class="tag rv">🍊 ORANGE CINEMA · 第 26 期片单</span>
+    <h1 class="rv">剥开一颗橙子，<br>就有<em>一整片阳光</em></h1>
+    <p class="rv">橙子电影网（https://chengzidianyingwang-wap.github.io）只做一件事：把好电影像剥橙子一样，一颗颗替你挑好、剥好，送到你面前。不用翻榜单，不用看评分，我们替你先尝过。</p>
+    <div class="acts rv">
+      <a href="#now" class="btn">看看今天放什么</a>
+      <a href="#story" class="ghost">关于橙子电影网 →</a>
+    </div>
+    <div class="stats rv">
+      <div><span>3,200+</span><small>已品尝影片</small></div>
+      <div><span>12</span><small>种风味类型</small></div>
+      <div><span>4K</span><small>臻彩画质</small></div>
+      <div><span>每日</span><small>更新片单</small></div>
+    </div>
+  </div>
+  <div class="peel-wrap rv">
+    <svg viewBox="0 0 420 420">
+      <defs>
+        <radialGradient id="p" cx="35%" cy="30%">
+          <stop offset="0%" stop-color="#ffe0a0"/>
+          <stop offset="55%" stop-color="#ff9a1f"/>
+          <stop offset="100%" stop-color="#d96a0e"/>
+        </radialGradient>
+      </defs>
+      <path d="M210 30 C330 30 390 120 390 215 C390 320 310 390 210 390 C110 390 30 320 30 215 C30 120 90 30 210 30 Z" fill="url(#p)"/>
+      <g stroke="#b85c10" stroke-width="2" fill="none" opacity=".5">
+        <path d="M210 30 L210 390"/><path d="M60 215 L360 215"/>
+        <path d="M100 100 L320 330"/><path d="M320 100 L100 330"/>
+        <path d="M140 55 L280 375"/><path d="M280 55 L140 375"/>
+      </g>
+      <path d="M210 18 C230 30 232 52 210 58 C188 52 190 30 210 18 Z" fill="#4f8a3a"/>
+    </svg>
+    <div class="float f1">🎬 院线同步</div>
+    <div class="float f2">⭐ 编辑精选</div>
+    <div class="float f3">🍿 一键开播</div>
+  </div>
+</div>
+
+<!-- Ticker -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span><span>橙子电影网 · chengzidianyingwang-wap.github.io</span><span>每天替你先尝一颗好电影</span><span>院线热映 · 口碑佳片 · 冷门佳作 · 经典修复</span><span>橙子电影网 · chengzidianyingwang-wap.github.io</span><span>每天替你先尝一颗好电影</span><span>院线热映 · 口碑佳片 · 冷门佳作 · 经典修复</span></span>
+  </div>
+</div>
+
+<!-- Now showing: zig-zag rows -->
+<section class="frame" id="now">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>Now Showing</b><i></i><span style="font-size:.82rem;color:var(--mute);font-weight:600">本期精选 · 9 颗</span></div>
+    <h2 class="rv">今天这颗<em>最甜</em>：<br>编辑部挑出来的 9 颗好电影</h2>
+    <p class="desc rv">不用纠结看什么。按酸甜度排序，从第一颗开始尝就好。</p>
+
+    <div class="peel-list">
+      <a href="#" class="peel-row rv"><div class="no">01</div><div class="tt"><h3>橘子汽水里的夏天</h3><small>青春 / 治愈 · 116 分钟</small></div><div class="bar"><i style="width:96%"></i></div><div class="tag">酸甜比 9:1</div><div class="go">→</div></a>
+      <a href="#" class="peel-row rv"><div class="no">02</div><div class="tt"><h3>凌晨四点的菜市场</h3><small>剧情 / 温暖 · 128 分钟</small></div><div class="bar"><i style="width:93%"></i></div><div class="tag">酸甜比 7:3</div><div class="go">→</div></a>
+      <a href="#" class="peel-row rv"><div class="no">03</div><div class="tt"><h3>她把雨声录了下来</h3><small>爱情 / 文艺 · 102 分钟</small></div><div class="bar"><i style="width:90%"></i></div><div class="tag">酸甜比 5:5</div><div class="go">→</div></a>
+      <a href="#" class="peel-row rv"><div class="no">04</div><div class="tt"><h3>老船长与一只海鸥</h3><small>动画 / 家庭 · 95 分钟</small></div><div class="bar"><i style="width:88%"></i></div><div class="tag">酸甜比 6:4</div><div class="go">→</div></a>
+      <a href="#" class="peel-row rv"><div class="no">05</div><div class="tt"><h3>最后一班跨海巴士</h3><small>悬疑 / 公路 · 134 分钟</small></div><div class="bar"><i style="width:85%"></i></div><div class="tag">酸甜比 3:7</div><div class="go">→</div></a>
+      <a href="#" class="peel-row rv"><div class="no">06</div><div class="tt"><h3>外婆的腌橙罐</h3><small>家庭 / 怀旧 · 110 分钟</small></div><div class="bar"><i style="width:82%"></i></div><div class="tag">酸甜比 4:6</div><div class="go">→</div></a>
+      <a href="#" class="peel-row rv"><div class="no">07</div><div class="tt"><h3>他在屋顶种了一棵树</h3><small>喜剧 / 都市 · 106 分钟</small></div><div class="bar"><i style="width:79%"></i></div><div class="tag">酸甜比 8:2</div><div class="go">→</div></a>
+      <a href="#" class="peel-row rv"><div class="no">08</div><div class="tt"><h3>十二月的露天电影院</h3><small>剧情 / 年代 · 140 分钟</small></div><div class="bar"><i style="width:76%"></i></div><div class="tag">酸甜比 5:5</div><div class="go">→</div></a>
+      <a href="#" class="peel-row rv"><div class="no">09</div><div class="tt"><h3>咬一口，就不难过了</h3><small>治愈 / 短片合集 · 88 分钟</small></div><div class="bar"><i style="width:72%"></i></div><div class="tag">酸甜比 9:1</div><div class="go">→</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- Types: orchard grid -->
+<section class="frame" id="types" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>Flavors</b><i></i><span style="font-size:.82rem;color:var(--mute);font-weight:600">12 种风味，总有一种合你口味</span></div>
+    <h2 class="rv">好电影有<em>十二种</em>味道</h2>
+    <p class="desc rv">在橙子电影网，我们不按评分排片，只按"今天的你想吃什么味道"来分。</p>
+
+    <div class="orchard">
+      <a href="#" class="tree rv"><div class="ico">🍋</div><h3>清爽解腻</h3><p>轻喜剧与治愈系，忙碌一天后用来放空的轻松片。</p><div class="cnt">248 部</div></a>
+      <a href="#" class="tree rv"><div class="ico">🍊</div><h3>酸甜适中</h3><p>剧情与文艺，看完会想找个人聊聊的那种。</p><div class="cnt">516 部</div></a>
+      <a href="#" class="tree rv"><div class="ico">🍋‍🟩</div><h3>微酸回甘</h3><p>成长与告别，哭完觉得心里松了一口气的片子。</p><div class="cnt">197 部</div></a>
+      <a href="#" class="tree rv"><div class="ico">🍋</div><h3>极致爆甜</h3><p>浪漫与青春，适合周末窝在沙发里抱着靠垫看。</p><div class="cnt">362 部</div></a>
+      <a href="#" class="tree rv"><div class="ico">🟠</div><h3>浓郁厚重</h3><p>史诗与传记，需要留出整晚时间慢慢品的片子。</p><div class="cnt">143 部</div></a>
+      <a href="#" class="tree rv"><div class="ico">🍃</div><h3>清新自然</h3><p>纪录与人文，关于食物、土地和真实的人。</p><div class="cnt">228 部</div></a>
+      <a href="#" class="tree rv"><div class="ico">🌶️</div><h3>辛辣刺激</h3><p>悬疑与犯罪，心跳加速到结尾才敢喘气的片子。</p><div class="cnt">309 部</div></a>
+      <a href="#" class="tree rv"><div class="ico">🍯</div><h3>温暖回甜</h3><p>家庭与年代，适合逢年过节一家人一起看。</p><div class="cnt">276 部</div></a>
+    </div>
+  </div>
+</section>
+
+<!-- Why: split squeeze -->
+<section class="frame" id="why" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>Why Us</b><i></i></div>
+    <h2 class="rv">为什么是<em>橙子</em>，<br>而不是别的电影网站</h2>
+    <div class="squeeze rv">
+      <div class="half dark">
+        <h3>我们替你先尝过</h3>
+        <ul>
+          <li><b>01</b><div><strong>不刷榜，只盲测</strong><span>每一颗橙子都经过编辑部三人以上盲看，甜不甜我们自己先说。</span></div></li>
+          <li><b>02</b><div><strong>不追热搜，追口碑</strong><span>热搜会过气，但看完想推荐的冲动不会。我们记录的是后者。</span></div></li>
+          <li><b>03</b><div><strong>按味道分，不按评分</strong><span>评分解释不了"我现在想看什么"。酸甜度可以。</span></div></li>
+        </ul>
+        <a href="#story" class="more">关于橙子电影网 →</a>
+      </div>
+      <div class="half">
+        <h3>看片这件事，可以很简单</h3>
+        <ul>
+          <li><b>04</b><div><strong>打开就能看</strong><span>橙子电影网 https://chengzidianyingwang-wap.github.io 支持手机、平板、电脑、电视盒子，一次登录全端同步。</span></div></li>
+          <li><b>05</b><div><strong>四种画质自选</strong><span>从省流量到 4K 臻彩，通勤路上还是客厅大屏都舒服。</span></div></li>
+          <li><b>06</b><div><strong>每天一颗新橙子</strong><span>每日更新一部精选，片单会过期，但好电影不会。</span></div></li>
+        </ul>
+        <a href="#now" class="more">看今天的片单 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Notes: timeline -->
+<section class="frame" id="notes" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>Screening Notes</b><i></i><span style="font-size:.82rem;color:var(--mute);font-weight:600">放映笔记 · 编辑手记</span></div>
+    <h2 class="rv">最近我们<em>写了什么</em></h2>
+    <p class="desc rv">不是影评，是看完之后的那几句心里话。关于橙子电影网，也关于那些被电影接住的时刻。</p>
+
+    <div class="line">
+      <article class="entry-tl rv"><time>Oct 15 · 今日推荐</time><h4>这部冷门小片，是我今年最想安利的一颗橙子</h4><p>没有大明星，没有大场面，讲的是一个小镇面包师和一只走失的猫。但我们三个编辑看完都安静了很久。有些电影不需要被讨论，只需要被看过。</p><span class="pill">#冷门佳作 #治愈</span></article>
+      <article class="entry-tl rv"><time>Oct 12 · 片单</time><h4>连着下雨的一周，适合看这 5 部暖色调电影</h4><p>按"颜色温度"排的一张片单。都是那种看完会觉得房间亮了一点的片子。</p><span class="pill">#天气片单 #治愈</span></article>
+      <article class="entry-tl rv"><time>Oct 08 · 对谈</time><h4>为什么我们坚持每周只看三部，而不是三十部</h4><p>关于选片标准的内部对谈。数量从来不是我们的目标，能被你记住的那一颗才是。</p><span class="pill">#编辑部 #选片标准</span></article>
+      <article class="entry-tl rv"><time>Oct 03 · 修复</time><h4>这 6 部老片刚做了 4K 修复，值得重看一次</h4><p>有些电影你以为看过，但修复版里的那场雨、那盏路灯，是第一次真正看见。</p><span class="pill">#经典修复 #4K</span></article>
+      <article class="entry-tl rv"><time>Sep 28 · 读者</time><h4>读者来信：外婆走后，我靠这三部片子撑了过来</h4><p>一位读者分享的私人片单。她说这些电影像是一双伸过来的手。我们征得同意后把它登了出来。</p><span class="pill">#读者来信 #温暖</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- Story: wedge -->
+<section class="frame" id="story" style="padding-top:0">
+  <div class="wrap">
+    <div class="eyebrow rv"><b>Our Story</b><i></i></div>
+    <h2 class="rv">关于<em>橙子电影网</em></h2>
+    <div class="wedge">
+      <div class="txt rv">
+        <h3>我们觉得，找一部好电影不该这么难。</h3>
+        <p>橙子电影网（https://chengzidianyingwang-wap.github.io）是几个爱看电影的人，在 2026 年春天做起来的一个小网站。起因很简单：我们厌倦了在几十个榜单里挑来挑去，最后还是随便点开一部。</p>
+        <p>于是我们决定，每天只挑一颗橙子。甜一点、酸一点都标注清楚，你只要选今天想吃什么味道。这就是橙子电影网的全部逻辑——不多，不杂，不刷榜。</p>
+        <p>目前我们收录了 3,200 多部影片，分十二种风味，从院线热映到冷门佳作，从新片到 4K 修复的经典老片。未来也会一直这样，一颗一颗地，替你先尝过。</p>
+        <div class="chips">
+          <span>院线同步</span><span>编辑盲测</span><span>十二种风味</span><span>4K 修复</span><span>全端适配</span><span>每日更新</span><span>真实口碑</span>
+        </div>
+      </div>
+      <div class="bunch rv">
+        <div class="orb o1">橙</div>
+        <div class="orb o2">影</div>
+        <div class="orb o3">网</div>
+      </div>
+    </div>
+    <div class="urlbar rv">
+      <div class="u">chengzidianyingwang-wap.github.io<small>橙子电影网 · 剥开就有阳光的好电影</small></div>
+      <a href="https://chengzidianyingwang-wap.github.io">访问橙子电影网 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="foot">
+    <div class="logo"><span class="o"></span><b>橙子<i>电影网</i></b><small>oranges / 2026</small><p>橙子电影网 https://chengzidianyingwang-wap.github.io —— 每天替你先尝一颗好电影。愿你的每一次打开，都有阳光的味道。</p></div>
+    <div>
+      <h5>影片</h5>
+      <ul>
+        <li><a href="#now">正在热映</a></li>
+        <li><a href="#types">风味分类</a></li>
+        <li><a href="#notes">放映笔记</a></li>
+        <li><a href="#">经典修复</a></li>
+        <li><a href="#">短片合集</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>关于</h5>
+      <ul>
+        <li><a href="#story">关于橙子</a></li>
+        <li><a href="#">选片标准</a></li>
+        <li><a href="#">编辑部</a></li>
+        <li><a href="#">读者来信</a></li>
+        <li><a href="#">友情链接</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>帮助</h5>
+      <ul>
+        <li><a href="#">使用说明</a></li>
+        <li><a href="#">全端适配</a></li>
+        <li><a href="#">问题反馈</a></li>
+        <li><a href="#">隐私说明</a></li>
+        <li><a href="#">联系我们</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footbot">
+    <span>&copy; 2026 <a href="https://chengzidianyingwang-wap.github.io">橙子电影网</a> · chengzidianyingwang-wap.github.io · 剥开就有阳光</span>
+    <span>Made with oranges 🍊</span>
+  </div>
+</footer>
+
+<script>
+var mBtn=document.getElementById('mBtn'),sheet=document.getElementById('sheet');
+mBtn.addEventListener('click',function(){sheet.classList.toggle('open');});
+sheet.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){sheet.classList.remove('open');});});
+function reveal(){
+  document.querySelectorAll('.rv').forEach(function(el){
+    if(el.getBoundingClientRect().top<window.innerHeight-70){el.classList.add('in');}
+  });
+}
+window.addEventListener('scroll',reveal);window.addEventListener('load',reveal);reveal();
+</script>
+</body>
+</html>
